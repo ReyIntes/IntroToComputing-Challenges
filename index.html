@@ -82,6 +82,11 @@
     /* footer */
     footer {
         color: white;
+        background-color: #4b45456c;
+    }
+    footer h1, p {
+        padding-left: 50px;
+        padding-top: 50px;
     }
     </style>
 </head>
@@ -139,7 +144,7 @@
     <br>
 
     <!-- Portfolio -->
-<div id="portfolio">
+    <div id="portfolio">
     <h1>Portfolio</h1>
     <div class="work-list">
         <div class="work">
@@ -167,15 +172,40 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 
     <br>
+ 
+    <!-- video -->
+    <div class="video-container">
+        <h2>SAMPLE VIDEO</h2>
+        <video controls>
+          <source src="video.mp4" type="video/mp4">
+        </video>
+      </div>
 
     <footer>
     <!-- Contact -->
         <h1>Contact Me</h1>
         <p>reyintes@34.gmail.com</p>
         <p>09500303350</p>
+        <div class="form">
+            <div class="form-container">
+                <h3>Contact Form</h3>
+                <form>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" required>
+                
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            </div>
     </footer>
 
 </body>
