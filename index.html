@@ -12,7 +12,7 @@
     /* header */
     header{
         width: 100%;
-        height: 50vh;
+        height: 60vh;
         background-color: #4b45456c;
         background-size: cover;
         background-position: center;
@@ -39,12 +39,45 @@
         margin-top: 20px;
         padding-left: 50px;
     }
+    header h1 span {
+        color: red;
+    }
     header p {
         font-size: 70px;
         padding-left: 50px;
     }
-    /* section */
-    section {
+    /* about */
+    .about{
+        padding: 80px 0;
+        color: #ababab;
+    }
+    .row{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .about-col-2{
+            flex-basis: 60%;
+    }
+    .sub-title{
+        font-size: 60px;
+        font-weight: 600;
+        color: #fff;
+    }
+    .tab-titles{
+        display: flex;
+        margin: 20px 0 40px;
+        justify-content: space-between;
+        padding-left: 45px;
+    }
+    .tab-contents ul{
+        list-style: none;
+    }
+    .tab-contents ul li span{
+        color: red;
+    }
+    /* portfolio */
+    .portfolio {
         color: white;
     }
     /* footer */
@@ -65,36 +98,48 @@
             </ul>
         </nav>
     <p>1-BSCS-A</p>
-    <h1>Hi I'm Rey T. Intes</h1>
+    <h1>Hi I'm <span>Rey</span><br> T. Intes</h1>
     </header>
 
     <br>
 
     <!-- About -->
 
-    <section>
-    <h1>About Me</h1>
-        <p>My name is Rey I am 18 years old and my birthday is January 25,2005.
-        I lived in Cabpangi Libungan North Cotabato and I am a student of University of Southern Mindanao,1st  year college.</p>
-            <p>Ethnicity</p>
-            <p>Family</p>
-            <p>Religion</p>
-                <ul>
-                    <li><span>Bisaya</span></li>
-                </ul>
-                <ul>
-                    <li><span>Bernabe T. Intes</span></li>
-                    <li><span>Ofelia T. Intes</span></li>
-                    <li><span>Roy T. Intes</span></li>
-                </ul>
-                <ul>
-                    <li><span>Catholic</span></li>
-                </ul>
-    </section>
+    <div class="about">
+        <div class="row">
+            <div class="about-col-2">
+                <h1 class="sub-title" style="padding-top: 50px;">About Me</h1>
+                    <p>My name is Rey I am 18 years old and my birthday is January 25,2005.
+                    I lived in Cabpangi Libungan North Cotabato and I am a student of University of Southern Mindanao,1st  year college.</p>
+                    <div class="tab-titles">
+                        <p>Ethnicity</p>
+                        <p>Family</p>
+                        <p>Religion</p>
+                    </div>
+                    <div class="tab-contents">
+                        <ul>
+                            <li><span>Bisaya</span></li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents">
+                        <ul>
+                            <li>Bernabe T. <span>Intes</span></li>
+                            <li><span>Ofelia T. Intes</span></li>
+                            <li><span>Roy T. Intes</span></li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents">
+                        <ul>
+                            <li><span>Catholic</span></li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </div>
 
     <br>
 
-    <section>
+<div class="portfolio">
     <!-- Portfolio -->
     <h1>Portfolio</h1>
         <h3>Editing</h3>
@@ -103,13 +148,13 @@
             <p>Discovering beauty in simplicity.</p>
         <h3>My Self</h3>
             <p>Knowing yourself is the beginning of all wisdom.</p>
-    </section>
+</div>
 
     <br>
 
     <footer>
     <!-- Contact -->
-    <h1>Contact Me</h1>
+        <h1>Contact Me</h1>
         <p>reyintes@34.gmail.com</p>
         <p>09500303350</p>
     </footer>
