@@ -88,6 +88,35 @@
         padding-left: 50px;
         padding-top: 50px;
     }
+
+    @media only screen and (max-width:  600px){
+        header {
+            height: 80vh;
+        }
+        nav ul{
+            position: fixed;
+            top: 0;
+            right: -200px;
+            width: 200px;
+            height: 100vh;
+            padding-top: 50px;
+            z-index: 2;
+            transition: right 0.5s;
+        }
+        nav ul li{
+            display: hidden;
+            margin: 25px;
+        }
+        .about-col-2{
+            flex-basis: 100%;
+        }
+        .about-col-1{
+            margin-bottom: 30px;
+        }
+        .about-col-2{
+            font-size: 14px;
+        }
+    }
     </style>
 </head>
 <body>
@@ -207,6 +236,5 @@
             </div>
             </div>
     </footer>
-
 </body>
 </html>
