@@ -117,6 +117,186 @@
             font-size: 14px;
         }
     }
+    /* custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #000000; 
+    }   
+ 
+    ::-webkit-scrollbar-thumb {
+        background: #a02020; 
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #ff0000; 
+    }
+    /*testimonials*/
+    .testimonial {
+        border: 2px solid #5f1c1c;
+        background-color: #6e2121;
+        border-radius: 5px;
+        padding: 16px;
+        margin: 16px 0
+    }
+
+    .testimonial::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .testimonial img {
+        float: left;
+        margin-right: 20px;
+        padding-top: 50px;
+        border-radius: 50%;
+    }
+
+    .testimonial span {
+        font-size: 20px;
+        margin-right: 15px;
+    }
+
+@media (max-width: 500px) {
+        .testimonial {
+            text-align: center;
+        }
+        .testimonial img {
+            margin: auto;
+            float: none;
+            display: block;
+        }
+    }
+    /* chat pop-up */
+    .open-button {
+            background-color: #5e3bee;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.8;
+            position: fixed;
+            bottom: 23px;
+            right: 28px;
+            width: 280px;
+        }
+
+        .chat-popup {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+
+        .formContainer {
+            max-width: 300px;
+            padding: 10px;
+            background-color: white;
+        }
+
+        .formContainer textarea {
+            width: 100%;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+            resize: none;
+            min-height: 200px;
+        }
+
+        .formContainer textarea:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        .formContainer .btn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom:10px;
+            opacity: 0.8;
+        }
+
+        .formContainer .cancel {
+            background-color: red;
+        }
+
+        .formContainer .btn:hover, .open-button:hover {
+            opacity: 1;
+        }
+    /* overlay */
+    #overlay {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 2;
+        cursor: pointer;
+    }
+  
+    #text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 50px;
+        color: white;
+        transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+    }
+    .popup {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        margin-left: 100px;
+    }
+
+    .popup .popuptext {
+        visibility: hidden;
+        width: 160px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -80px;
+    }
+
+    .popup .popuptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+    .popup .show {
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s;
+    }
     </style>
 </head>
 <body>
@@ -132,10 +312,22 @@
         </nav>
     <p>1-BSCS-A</p>
     <h1>Hi I'm <span>Rey</span><br> T. Intes</h1>
+    <div class="popup" onclick="myFunction()">Click me!
+        <span class="popuptext" id="myPopup">Welcome to the shop</span>
+    </div>
     </header>
 
     <br>
 
+    <!-- overlay -->
+    <div id="overlay" onclick="off()">
+        <div id="text">Rey Website</div>
+    </div>
+  
+    <div style="padding:20px">
+        <h2>OVERLAY</h2>
+        <button onclick="on()">Turn on overlay effect</button>
+    </div>
     <!-- About -->
 
     <div class="about">
@@ -212,6 +404,34 @@
           <source src="video.mp4" type="video/mp4">
         </video>
       </div>
+    
+    <!-- testimonial -->
+    <div class="testimonial">
+        <img src="images/image1.jpg" alt="Avatar" style="width:90px">
+        <p><span>Yuji Itadori</span> Student at Jujutsu High </p>
+        <p>Gojo Senseeeeeeeeeeii</p>
+      </div>
+      
+      <div class="testimonial">
+        <img src="images/image2.jpg" alt="Avatar" style="width:90px">
+        <p><span>Satorou Gojo</span> Teacher at Jujutsu High</p>
+        <p>Itadori kyuuuuuun</p>
+      </div>
+
+      <button class="open-button" onclick="openForm()">Chat</button>
+
+    <!-- chat -->
+    <div class="chat-popup" id="myForm">
+        <form action="/action_page.php" class="formContainer">
+        <h1>Chat</h1>
+      
+          <label for="msg"><b>Message</b></label>
+          <textarea placeholder="Type message.." name="msg" required></textarea>
+      
+          <button type="submit" class="btn" id="linkButton">Send</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
 
     <footer>
     <!-- Contact -->
@@ -236,5 +456,43 @@
             </div>
             </div>
     </footer>
+
+    <script>
+        function openForm() {
+          document.getElementById("myForm").style.display = "block";
+        }
+        
+        function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+    <script>
+        function buttonClicked() {
+            alert("Your Message has been sent");
+        }
+    </script>
+    <script>
+        // Add an event listener to the button
+        document.getElementById('linkButton').addEventListener('click', function() {
+          // Navigate to the target HTML file
+          window.location.href = 'index.html';
+        });
+    </script>
+    <script>
+        function on() {
+          document.getElementById("overlay").style.display = "block";
+        }
+        
+        function off() {
+          document.getElementById("overlay").style.display = "none";
+        }
+    </script>
+    <script>
+        function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+    </script>
+
 </body>
 </html>
